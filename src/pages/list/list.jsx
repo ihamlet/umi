@@ -1,6 +1,8 @@
 import { Card, Button } from 'antd'
 import { connect } from 'dva'
 
+import MyInput from './../demo/input/MyInput'
+
 const namespace = 'puzzlecards'
 
 const mapStateToProps = (state) => {
@@ -25,11 +27,20 @@ const mapDispatchToProps = (dispatch) => {
 @connect(mapStateToProps, mapDispatchToProps)
 
 class PuzzleCardPage extends React.Component {
+    state = {
+        value:''
+    }
+
+
     add = () =>{
         this.props.onClickAdd({
             setup: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit add',
-            punchline: 'here we use dva'
+            punchline: this.state.value
         })
+    }
+
+    inputChange = (event) => {
+        this.setState({value: event.target.value})
     }
 
     render(){
@@ -45,6 +56,9 @@ class PuzzleCardPage extends React.Component {
                         </Card>
                     })
                 }
+                <div>
+                    <MyInput value={this.state.value} onChange={this.inputChange}/>
+                </div>
                 <div>
                     <Button onClick={this.add}>
                         添加卡片
