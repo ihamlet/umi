@@ -1,19 +1,22 @@
 export default {
     plugins:[
         ['umi-plugin-react',{
-            antd: true
+            antd: true,
+            dva: true
         }]
     ],
-    routes: [{
+    routes: [
+    {
         path: '/',
         component: './index',
         routes:[
             {
-                path:'event',
-                component:'./demo/event'
+                path:'',
+                component:'./list/list'
             }
         ]
-    },{
+    },
+    {
         path: '/event',
         component: './demo/event',
     },{
@@ -22,5 +25,8 @@ export default {
     },{
         path: '/tree',
         component: './demo/tree'
+    },{
+        path:'/list',
+        component: './list/shoppingList'
     }]
 }

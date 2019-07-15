@@ -1,4 +1,3 @@
-import React from 'react'
 import AvatarPicture from './avatar/picture'
 
 class shoppingList extends React.Component{    

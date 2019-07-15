@@ -1,5 +1,3 @@
-import React from 'ract'
-
 const Picture = ( props ) =>{
     return (
         <div>
