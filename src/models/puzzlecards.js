@@ -29,14 +29,8 @@ export default {
     reducers: {
       addNewCard(state,{ payload: newCard }){
         const nextCounter = state.counter + 1
-
-        let arr = []
-
-        newCard.forEach(element => {
-          arr.push(element)
-        })
         
-        const nextData = state.data.concat(arr)
+        const nextData = state.data.concat(newCard)
 
         nextData.map((e,i)=>{
           return {
