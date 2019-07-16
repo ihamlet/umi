@@ -17,6 +17,7 @@ export default {
         const endPointURI = 'http://localhost:8000/api/list'
   
         const puzzle = yield call(request, endPointURI)
+
         yield put({ type: 'addNewCard', payload: puzzle })
   
         yield call(delay, 3000)
@@ -28,9 +29,23 @@ export default {
     reducers: {
       addNewCard(state,{ payload: newCard }){
         const nextCounter = state.counter + 1
-        const newCardWithId = {...newCard, id: nextCounter}
-        const nextData = state.data.concat(newCardWithId)
-        return{
+
+        let arr = []
+
+        newCard.forEach(element => {
+          arr.push(element)
+        })
+        
+        const nextData = state.data.concat(arr)
+
+        nextData.map((e,i)=>{
+          return {
+            ...e,
+            id: i
+          }
+        })
+
+        return {
           data: nextData,
           counter: nextCounter
         }
