@@ -6,16 +6,16 @@ export default {
         }]
     ],
     routes: [
-    {
-        path: '/',
-        component: './index',
-        routes:[
-            {
-                path:'',
-                component:'./list/list'
-            }
-        ]
-    },
+    // {
+    //     path: '/',
+    //     component: './index',
+    //     routes:[
+    //         {
+    //             path:'',
+    //             component:'./list/list'
+    //         }
+    //     ]
+    // },
     {
         path: '/event',
         component: './demo/event',
